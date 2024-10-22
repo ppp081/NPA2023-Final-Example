@@ -10,19 +10,21 @@
 #######################################################################################
 # 1. Import libraries for API requests, JSON formatting, and time.
 
-<!!!REPLACEME with code for libraries>
+import requests
+import json
+import time
 
 #######################################################################################
 # 2. Assign the Webex hard-coded access token to the variable accessToken.
 
 
-accessToken = "Bearer <!!!REPLACEME with hard-coded token!!!>" 
+accessToken = "Bearer ZGU2ZGQyZDctN2RhYS00YWI5LTk5ZjYtZDhiYWNmMzQ1YWM1OGMzZmM3MDQtNjJj_P0A1_bc884c7a-820b-497b-8b60-00b4d15ea95d" 
 
 #######################################################################################
 # 3. Prepare GetParameters to get the latest message for messages API.
 
 # Defines a variable that will hold the roomId 
-roomIdToGetMessages = "<!!!REPLACEME with roomID of the NPA2023 Webex Teams room!!!>" 
+roomIdToGetMessages = "Y2lzY29zcGFyazovL3VzL1JPT00vNTFmNTJiMjAtNWQwYi0xMWVmLWE5YTAtNzlkNTQ0ZjRkNGZi" 
 
 while True:
     # always add 1 second of delay to the loop to not go over a rate limit of API calls
@@ -41,7 +43,7 @@ while True:
     # Send a GET request to the Webex Teams messages API.
     # - Use the GetParameters to get only the latest message.
     # - Store the message in the "r" variable.
-    r = requests.get("<!!!REPLACEME with URL!!!>",
+    r = requests.get("https://webexapis.com/v1/messages",
                          params = GetParameters, 
                          headers = {"Authorization": accessToken}
                     )
